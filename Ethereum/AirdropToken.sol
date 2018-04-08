@@ -3,9 +3,10 @@ pragma solidity 0.4.21;
 import "./ERC20Interface.sol";
 import "./SafeMath.sol";
 
-contract ERC20 is ERC20Interface {
+contract AirdropToken is ERC20Interface {
     using SafeMath for uint;
 
+    address private owner;
     uint private _totalSupply;
 
     mapping (address => uint) private _balances;
@@ -47,5 +48,11 @@ contract ERC20 is ERC20Interface {
         _allowed[from][msg.sender].sub(tokens);
         emit Transfer(from, to, tokens);
         return true;
+    }
+
+    function AirdropToken() public {
+        owner = msg.sender;
+        _totalSupply = 1000000;
+        _balances[owner] = _totalSupply;
     }
 }

@@ -5,29 +5,29 @@ pragma solidity 0.4.21;
  * @dev Math operations with safety checks that throw on error
  */
 library SafeMath {
-    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+    function mul(uint a, uint b) internal pure returns (uint) {
         if (a == 0) {
             return 0;
         }
-        uint256 c = a * b;
+        uint c = a * b;
         assert(c / a == b);
         return c;
     }
 
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    function div(uint a, uint b) internal pure returns (uint) {
         // assert(b > 0); // Solidity automatically throws when dividing by 0
-        uint256 c = a / b;
+        uint c = a / b;
         // assert(a == b * c + a % b); // There is no case in which this doesn't hold
         return c;
     }
 
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    function sub(uint a, uint b) internal pure returns (uint) {
         assert(b <= a);
         return a - b;
     }
 
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-        uint256 c = a + b;
+    function add(uint a, uint b) internal pure returns (uint) {
+        uint c = a + b;
         assert(c >= a);
         return c;
     }
