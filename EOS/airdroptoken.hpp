@@ -7,20 +7,21 @@ namespace airdrop {
         public:
             using contract::contract;
 
-            airdroptoken(account_name self): contract(self), _accounts(_self, _self) {
-                total_supply = 1000000;
-            }
+            airdroptoken(account_name self): 
+                contract(self), _accounts(_self, _self), total_supply(1000000000) {}
 
-            void supply(account_name user);
+            void totalsupply(account_name user);
 
-            void moneyof(account_name user);
+            void balanceof(account_name user);
+
+            void transfer(account_name from, account_name to, uint64_t tokens);
 
         private:
             struct account {
-                account_name name;
+                account_name owner;
                 uint64_t balance;
 
-                uint64_t primary_key()const { return name; }
+                uint64_t primary_key()const { return owner; }
             };
             eosio::multi_index<N(accounts), account> _accounts;
 
