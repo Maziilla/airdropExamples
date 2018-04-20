@@ -18,9 +18,9 @@ namespace test
 		public static string GetInfo()
 		{
 			var request = (HttpWebRequest)HttpWebRequest.Create($"http://{serverAddress}/v1/chain/get_info");
-            request.Method = "GET";
-            string responseData;
-            using (var response = (HttpWebResponse)request.GetResponse())
+			request.Method = "GET";
+			string responseData;
+			using (var response = (HttpWebResponse)request.GetResponse())
 				using (var dataStream = response.GetResponseStream())
 					using (var reader = new StreamReader(dataStream))
 						responseData = reader.ReadToEnd();
@@ -33,15 +33,15 @@ namespace test
 			var postData = $"{{\"account_name\":\"{accountName}\"}}";
 			var data = Encoding.ASCII.GetBytes(postData);
 			request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = data.Length;
+			request.ContentType = "application/x-www-form-urlencoded";
+			request.ContentLength = data.Length;
 			using (var stream = request.GetRequestStream())
-            {
-                stream.Write(data, 0, data.Length);
-            }
+			{
+				stream.Write(data, 0, data.Length);
+			}
 
 			string responseData;
-            using (var response = (HttpWebResponse)request.GetResponse())
+			using (var response = (HttpWebResponse)request.GetResponse())
 				using (var dataStream = response.GetResponseStream())
 					using (var reader = new StreamReader(dataStream))
 						responseData = reader.ReadToEnd();
