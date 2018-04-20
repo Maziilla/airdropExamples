@@ -34,7 +34,7 @@
  (import "env" "require_auth2" (func $require_auth2 (param i64 i64)))
  (import "env" "require_recipient" (func $require_recipient (param i64)))
  (table 5 5 anyfunc)
- (elem (i32.const 0) $__wasm_nullptr $_ZN7airdrop12airdroptoken8transferEyyy $_ZN7airdrop12airdroptoken5issueEy $_ZN7airdrop12airdroptoken11totalsupplyEy $_ZN7airdrop12airdroptoken9balanceofEy)
+ (elem (i32.const 0) $__wasm_nullptr $_ZN10eosairdrop12airdroptoken8transferEyyy $_ZN10eosairdrop12airdroptoken5issueEy $_ZN10eosairdrop12airdroptoken11totalsupplyEy $_ZN10eosairdrop12airdroptoken9balanceofEy)
  (memory $0 1)
  (data (i32.const 4) "\90c\00\00")
  (data (i32.const 16) "Total supply: \00")
@@ -57,10 +57,10 @@
  (export "memory" (memory $0))
  (export "_ZeqRK11checksum256S1_" (func $_ZeqRK11checksum256S1_))
  (export "_ZN5eosio12require_authERKNS_16permission_levelE" (func $_ZN5eosio12require_authERKNS_16permission_levelE))
- (export "_ZN7airdrop12airdroptoken11totalsupplyEy" (func $_ZN7airdrop12airdroptoken11totalsupplyEy))
- (export "_ZN7airdrop12airdroptoken9balanceofEy" (func $_ZN7airdrop12airdroptoken9balanceofEy))
- (export "_ZN7airdrop12airdroptoken5issueEy" (func $_ZN7airdrop12airdroptoken5issueEy))
- (export "_ZN7airdrop12airdroptoken8transferEyyy" (func $_ZN7airdrop12airdroptoken8transferEyyy))
+ (export "_ZN10eosairdrop12airdroptoken11totalsupplyEy" (func $_ZN10eosairdrop12airdroptoken11totalsupplyEy))
+ (export "_ZN10eosairdrop12airdroptoken9balanceofEy" (func $_ZN10eosairdrop12airdroptoken9balanceofEy))
+ (export "_ZN10eosairdrop12airdroptoken5issueEy" (func $_ZN10eosairdrop12airdroptoken5issueEy))
+ (export "_ZN10eosairdrop12airdroptoken8transferEyyy" (func $_ZN10eosairdrop12airdroptoken8transferEyyy))
  (export "apply" (func $apply))
  (export "memcmp" (func $memcmp))
  (export "malloc" (func $malloc))
@@ -84,7 +84,7 @@
    )
   )
  )
- (func $_ZN7airdrop12airdroptoken11totalsupplyEy (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $_ZN10eosairdrop12airdroptoken11totalsupplyEy (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (drop
    (call $current_sender)
@@ -104,7 +104,7 @@
    )
   )
  )
- (func $_ZN7airdrop12airdroptoken9balanceofEy (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $_ZN10eosairdrop12airdroptoken9balanceofEy (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -238,7 +238,7 @@
     (i32.eq
      (i32.load offset=16
       (tee_local $5
-       (call $_ZNK5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
+       (call $_ZNK5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
         (get_local $4)
         (get_local $6)
        )
@@ -276,7 +276,7 @@
    )
   )
  )
- (func $_ZNK5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZNK5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -560,7 +560,7 @@
      )
      (br $label$6)
     )
-    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_
+    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_
      (i32.add
       (get_local $0)
       (i32.const 24)
@@ -606,7 +606,7 @@
   )
   (get_local $6)
  )
- (func $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32)
+ (func $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
@@ -931,7 +931,7 @@
    )
   )
  )
- (func $_ZN7airdrop12airdroptoken5issueEy (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $_ZN10eosairdrop12airdroptoken5issueEy (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i64)
   (local $3 i32)
   (local $4 i32)
@@ -1091,7 +1091,7 @@
       (i32.eq
        (i32.load offset=16
         (tee_local $7
-         (call $_ZNK5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
+         (call $_ZNK5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
           (get_local $5)
           (get_local $7)
          )
@@ -1419,7 +1419,7 @@
      )
      (br $label$7)
     )
-    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_
+    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_
      (i32.add
       (get_local $0)
       (i32.const 32)
@@ -1464,7 +1464,7 @@
    )
   )
  )
- (func $_ZN7airdrop12airdroptoken8transferEyyy (type $FUNCSIG$vijjj) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i64)
+ (func $_ZN10eosairdrop12airdroptoken8transferEyyy (type $FUNCSIG$vijjj) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i64)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
@@ -1617,7 +1617,7 @@
     (i32.eq
      (i32.load offset=16
       (tee_local $12
-       (call $_ZNK5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
+       (call $_ZNK5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
         (get_local $4)
         (get_local $10)
        )
@@ -1771,7 +1771,7 @@
     (i32.eq
      (i32.load offset=16
       (tee_local $10
-       (call $_ZNK5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
+       (call $_ZNK5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE31load_object_by_primary_iteratorEl
         (get_local $4)
         (get_local $6)
        )
@@ -2219,7 +2219,7 @@
      )
      (br $label$13)
     )
-    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN7airdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_
+    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy3607749779137757184EN10eosairdrop12airdroptoken7accountEJEE8item_ptrENS_9allocatorIS7_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS6_4itemENS_14default_deleteISD_EEEERyRlEEEvDpOT_
      (i32.add
       (get_local $0)
       (i32.const 32)
@@ -2363,7 +2363,7 @@
          )
         )
         (drop
-         (call $_ZN5eosio14execute_actionIN7airdrop12airdroptokenES2_JyyyEEEbPT_MT0_FvDpT1_E
+         (call $_ZN5eosio14execute_actionIN10eosairdrop12airdroptokenES2_JyyyEEEbPT_MT0_FvDpT1_E
           (i32.add
            (get_local $7)
            (i32.const 72)
@@ -2403,7 +2403,7 @@
         )
        )
        (drop
-        (call $_ZN5eosio14execute_actionIN7airdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E
+        (call $_ZN5eosio14execute_actionIN10eosairdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E
          (i32.add
           (get_local $7)
           (i32.const 72)
@@ -2431,7 +2431,7 @@
        )
       )
       (drop
-       (call $_ZN5eosio14execute_actionIN7airdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E
+       (call $_ZN5eosio14execute_actionIN10eosairdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E
         (i32.add
          (get_local $7)
          (i32.const 72)
@@ -2459,7 +2459,7 @@
       )
      )
      (drop
-      (call $_ZN5eosio14execute_actionIN7airdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E
+      (call $_ZN5eosio14execute_actionIN10eosairdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E
        (i32.add
         (get_local $7)
         (i32.const 72)
@@ -2568,7 +2568,7 @@
   )
   (unreachable)
  )
- (func $_ZN5eosio14execute_actionIN7airdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5eosio14execute_actionIN10eosairdrop12airdroptokenES2_JyEEEbPT_MT0_FvDpT1_E (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i64)
   (local $4 i32)
@@ -2717,7 +2717,7 @@
   )
   (i32.const 1)
  )
- (func $_ZN5eosio14execute_actionIN7airdrop12airdroptokenES2_JyyyEEEbPT_MT0_FvDpT1_E (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5eosio14execute_actionIN10eosairdrop12airdroptokenES2_JyyyEEEbPT_MT0_FvDpT1_E (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i64)
   (local $4 i64)

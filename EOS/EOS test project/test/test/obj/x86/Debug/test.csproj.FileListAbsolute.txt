@@ -1,0 +1,5 @@
+/home/anton/Projects/test/test/bin/Debug/test.exe
+/home/anton/Projects/test/test/bin/Debug/test.pdb
+/home/anton/Projects/test/test/obj/x86/Debug/test.csproj.CoreCompileInputs.cache
+/home/anton/Projects/test/test/obj/x86/Debug/test.exe
+/home/anton/Projects/test/test/obj/x86/Debug/test.pdb

@@ -1,5 +1,5 @@
 #include <airdroptoken.hpp>
-using namespace ::airdrop;
+using namespace ::eosairdrop;
 
 void airdroptoken::totalsupply(account_name user) {
     account_name account = current_sender();

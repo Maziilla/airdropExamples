@@ -2,7 +2,7 @@
 #include <eosiolib/print.hpp>
 using namespace ::eosio;
 
-namespace airdrop {
+namespace eosairdrop {
     class airdroptoken : public eosio::contract {
         public:
             using contract::contract;
