@@ -3,11 +3,15 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text;
+using Newtonsoft.Json;
+using test.ResponseClasses;
 
 namespace test
 {
 	public static class Blockchain
 	{
+		private static readonly string getInfoMethod = "get_info";
+        private static readonly string getAccountMethod = "get_account";
 		public static readonly string serverAddress;
 
 		static Blockchain()
@@ -20,11 +24,18 @@ namespace test
 			var request = (HttpWebRequest)HttpWebRequest.Create($"http://{serverAddress}/v1/chain/{methodName}");
             request.Method = "GET";
             string responseData;
-            using (var response = (HttpWebResponse)request.GetResponse())
-            using (var dataStream = response.GetResponseStream())
-            using (var reader = new StreamReader(dataStream))
-                responseData = reader.ReadToEnd();
-            return responseData;
+			using (var response = (HttpWebResponse)request.GetResponse())
+			{
+				using (var dataStream = response.GetResponseStream())
+				{
+					using (var reader = new StreamReader(dataStream))
+					{
+						responseData = reader.ReadToEnd();
+					}
+				}
+			}         
+
+			return responseData;
 		}
 
 		public static string PostRequest(string methodName, string postData)
@@ -40,23 +51,37 @@ namespace test
             }
 
             string responseData;
-            using (var response = (HttpWebResponse)request.GetResponse())
-            using (var dataStream = response.GetResponseStream())
-            using (var reader = new StreamReader(dataStream))
-                responseData = reader.ReadToEnd();
+			using (var response = (HttpWebResponse)request.GetResponse())
+            {
+                using (var dataStream = response.GetResponseStream())
+                {
+                    using (var reader = new StreamReader(dataStream))
+                    {
+                        responseData = reader.ReadToEnd();
+                    }
+                }
+            }
             return responseData;
 		}
 
-		public static string GetInfo()
+		public static BlockchainInfo GetInfo()
 		{
-			return GetRequest("get_info");
+			var jsonString = GetRequest(getInfoMethod);
+
+			var blockchainInfo = JsonConvert.DeserializeObject<BlockchainInfo>(jsonString);
+
+			return blockchainInfo;
 		}
 
-		public static string GetAccount(string accountName)
+		public static AccountInfo GetAccount(string accountName)
 		{
-			var postData = $"{{\"account_name\":\"{accountName}\"}}";
+			var postData = JsonConvert.SerializeObject(new { account_name = accountName });
 
-			return PostRequest("get_account", postData);
+			var resultJson = PostRequest(getAccountMethod, postData);
+
+			var accountInfo = JsonConvert.DeserializeObject<AccountInfo>(resultJson);
+
+			return accountInfo;
 		}
 	}
 }
