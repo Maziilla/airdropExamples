@@ -2,13 +2,31 @@
 using namespace ::airdrop;
 
 void airdroptoken::totalsupply(account_name user) {
-    print("Total supply: ", total_supply);
+    account_name account = current_sender();
+    require_recipient(user);
+    print("Total supply: ", publication_time());
 }
 
 void airdroptoken::balanceof(account_name user) {
     auto user_iterator = _accounts.find(user);
-    eosio_assert(!(user_iterator == _accounts.end()), "that user doesn't exist");
+    eosio_assert(user_iterator != _accounts.end(), "that user doesn't exist");
     print("User ", name{(*user_iterator).owner}, " have ", (*user_iterator).balance);
+}
+
+void airdroptoken::issue(uint64_t tokens) {
+    require_auth(_self);
+    auto owner_iterator = _accounts.find(_self);
+    if (owner_iterator == _accounts.end()) {
+        _accounts.emplace(_self, [&](auto& a) {
+            a.owner = _self;
+            a.balance = tokens;
+        });
+    } else {
+        _accounts.modify(owner_iterator, 0, [&](auto& a) {
+            a.balance += tokens;
+            eosio_assert(a.balance >= tokens, "overflow detected");
+        });
+    }
 }
 
 void airdroptoken::transfer(account_name from, account_name to, uint64_t tokens) {
@@ -42,4 +60,4 @@ void airdroptoken::transfer(account_name from, account_name to, uint64_t tokens)
 }
 
 
-EOSIO_ABI(airdroptoken, (totalsupply)(balanceof)(transfer))
+EOSIO_ABI(airdroptoken, (totalsupply)(balanceof)(transfer)(issue))

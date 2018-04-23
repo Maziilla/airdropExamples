@@ -16,6 +16,8 @@ namespace airdrop {
 
             void transfer(account_name from, account_name to, uint64_t tokens);
 
+            void issue(uint64_t tokens);
+
         private:
             struct account {
                 account_name owner;
